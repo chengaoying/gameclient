@@ -1,4 +1,4 @@
-package cn.ohyeah.gameclient.protocol;
+package cn.ohyeah.gameclient.global;
 
 /**
  * 协议头包装器

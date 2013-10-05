@@ -1,16 +1,15 @@
 package cn.ohyeah.gameclient.message;
 
+
 import io.netty.channel.Channel;
 
-public class MessageSender {
-	
-	//public static Queue<Message> msgQueue = new LinkedList<Message>();
+public class Sender {
 	
 	private Channel channel;
 	
-	private static MessageSender instance;
+	private static Sender instance;
 	
-	private MessageSender(Channel channel){
+	private Sender(Channel channel){
 		this.channel = channel;
 	}
 	
@@ -19,11 +18,11 @@ public class MessageSender {
 			throw new RuntimeException("connection is already interrupt");
 		}
 		if(instance == null){
-			instance = new MessageSender(channel);
+			instance = new Sender(channel);
 		}
 	}
 	
-	public static MessageSender getInstance(){
+	public static Sender getInstance(){
 		return instance;
 	}
 	

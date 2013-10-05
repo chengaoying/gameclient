@@ -1,4 +1,4 @@
-package cn.ohyeah.gameclient.protocol;
+package cn.ohyeah.gameclient.global;
 
 public class HeadWrapper implements IHeadAccessor {
 

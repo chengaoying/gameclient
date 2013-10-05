@@ -1,7 +1,7 @@
 package cn.ohyeah.gameclient.bootstrap;
 
 import cn.ohyeah.gameclient.handler.GameClientHandler;
-import cn.ohyeah.gameclient.message.MessageSender;
+import cn.ohyeah.gameclient.message.Sender;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -26,7 +26,7 @@ public class GameClient {
 		GameClient.host = host;
 		GameClient.port = port;
 		
-		MessageSender.initMessageSender(getChannel(),256);
+		Sender.initMessageSender(getChannel(),256);
 	}
 
 	private static Bootstrap getBootstrap() {

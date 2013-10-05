@@ -1,32 +1,45 @@
 package cn.ohyeah.gameclient.message;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
-
+/**
+ * 服务器返回的信息
+ * @author Administrator
+ *
+ */
 public class Message {
 	
-	private int type;
+	/**
+	 * 返回码， 0请求成功，负值为请求错误
+	 */
+	private int code;
 	
-	private ByteBuf byteBuf;
+	/**
+	 * 提示信息，对应code值
+	 */
+	private String message;
 	
-	public Message(int size){
-		byteBuf = Unpooled.buffer(size);
+	/**
+	 * 返回的数据
+	 */
+	private String data;
+	
+	public int getCode() {
+		return code;
 	}
-
-	public ByteBuf getByteBuf() {
-		return byteBuf;
+	public void setCode(int code) {
+		this.code = code;
 	}
-
-	public void setByteBuf(ByteBuf byteBuf) {
-		this.byteBuf = byteBuf;
+	public String getMessage() {
+		return message;
 	}
-
-	public int getType() {
-		return type;
+	public void setMessage(String message) {
+		this.message = message;
 	}
-
-	public void setType(int type) {
-		this.type = type;
+	public String getData() {
+		return data;
 	}
+	public void setData(String data) {
+		this.data = data;
+	}
+	
 	
 }
