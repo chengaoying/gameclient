@@ -11,7 +11,7 @@ public class MessageQueue {
 	public static Queue<Message> msgQueue = new LinkedList<Message>();
 	
 	/**
-	 * 服务器是否有消息返回，创建一个线程监听，有消息则告诉主线程。
+	 * 服务器是否有消息返回
 	 * @return
 	 */
 	public static boolean hasMessage(){

@@ -6,7 +6,7 @@ package cn.ohyeah.gameclient.handler;
 import java.util.logging.Logger;
 
 import cn.ohyeah.gameclient.global.ProcessFrame;
-import cn.ohyeah.gameclient.response.DefaultResponse;
+import cn.ohyeah.gameclient.service.response.DefaultResponseService;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -22,7 +22,7 @@ public class GameClientHandler extends ChannelInboundHandlerAdapter {
 		ProcessFrame frame = new ProcessFrame();
 		frame.setChannel(ctx.channel());
 		frame.setResponse(buf);
-		DefaultResponse rsp = new DefaultResponse();
+		DefaultResponseService rsp = new DefaultResponseService();
 		rsp.process(frame);
 	}
 
@@ -33,12 +33,12 @@ public class GameClientHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
-		System.out.println("client active");
+		logger.info("client active");
 	}
 
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-		System.out.println("client inactive");
+		logger.info("client inactive");
 	}
 
 	@Override

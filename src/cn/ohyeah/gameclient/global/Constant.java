@@ -19,6 +19,7 @@ public class Constant {
 	public static final byte  SYS_SERV_BREAK_HREAT = 1;			/*心跳命令*/
 	
 	public static final byte  USER_SERV_REGISTER = 11;			/*用户注册*/
+	public static final byte  USER_SERV_LOGIN = 12;				/*用户注册*/
 	
 	/**
 	 * 协议名列表
