@@ -1,12 +1,11 @@
 package cn.ohyeah.gameclient.service.request;
 
 import io.netty.buffer.ByteBuf;
+import cn.ohyeah.gameclient.bootstrap.GameClient;
 import cn.ohyeah.gameclient.global.Constant;
 import cn.ohyeah.gameclient.global.HeadWrapper;
-import cn.ohyeah.gameclient.message.Message;
+import cn.ohyeah.gameclient.message.ResultInfo;
 import cn.ohyeah.gameclient.message.MessageQueue;
-import cn.ohyeah.gameclient.message.Sender;
-
 
 public abstract class AbstractRequestService {
 
@@ -20,7 +19,7 @@ public abstract class AbstractRequestService {
 	 * @param buf
 	 */
 	protected void request(ByteBuf buf){
-		Sender sender = Sender.getInstance();
+		GameClient.Sender sender = GameClient.Sender.getInstance();
 		sender.sendMessage(buf);
 	}
 	
@@ -28,9 +27,9 @@ public abstract class AbstractRequestService {
 	 * 响应服务器请求
 	 * @return
 	 */
-	protected Message response(){
+	protected ResultInfo response(){
 		boolean hasMessage = false;
-		Message msg = null;
+		ResultInfo msg = null;
 		while(!hasMessage){
 			if(MessageQueue.hasMessage()){
 				hasMessage = true;

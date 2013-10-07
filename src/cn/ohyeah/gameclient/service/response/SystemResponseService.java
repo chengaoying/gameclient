@@ -2,11 +2,10 @@ package cn.ohyeah.gameclient.service.response;
 
 import cn.ohyeah.gameclient.global.Constant;
 import cn.ohyeah.gameclient.global.HeadWrapper;
-import cn.ohyeah.gameclient.global.IResponse;
 import cn.ohyeah.gameclient.global.ProcessFrame;
 import cn.ohyeah.gameclient.service.request.SystemRequestService;
 
-public class SystemResponseService implements IResponse {
+public class SystemResponseService implements IResponseService {
 
 	@Override
 	public void process(ProcessFrame frame) {

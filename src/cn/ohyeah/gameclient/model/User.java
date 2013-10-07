@@ -4,7 +4,7 @@ import cn.ohyeah.gameclient.util.BytesUtil;
 import io.netty.buffer.ByteBuf;
 
 
-public class UserInfo{
+public class User{
 
 	private String name;
 
@@ -63,8 +63,8 @@ public class UserInfo{
 		BytesUtil.writeString(buff, area);
 	}
 	
-	public UserInfo read(ByteBuf buff){
-		UserInfo user = new UserInfo();
+	public User read(ByteBuf buff){
+		User user = new User();
 		user.setName(BytesUtil.readString(buff));
 		user.setPassword(BytesUtil.readString(buff));
 		user.setTel(BytesUtil.readString(buff));

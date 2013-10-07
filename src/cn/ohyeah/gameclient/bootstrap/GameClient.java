@@ -1,7 +1,6 @@
 package cn.ohyeah.gameclient.bootstrap;
 
 import cn.ohyeah.gameclient.handler.GameClientHandler;
-import cn.ohyeah.gameclient.message.Sender;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -11,6 +10,11 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
+/**
+ * 客户端通讯层启动类
+ * @author xiao chen
+ *
+ */
 public class GameClient {
 	private static String host;
 	private static int port;
@@ -60,4 +64,31 @@ public class GameClient {
 		return channel;
 	}
 	
+	public static class Sender {
+		
+		private Channel channel;
+		
+		private static Sender instance;
+		
+		private Sender(Channel channel){
+			this.channel = channel;
+		}
+		
+		public static void initMessageSender(Channel channel, int bufsize){
+			if(channel == null){
+				throw new RuntimeException("connection is already interrupt");
+			}
+			if(instance == null){
+				instance = new Sender(channel);
+			}
+		}
+		
+		public static Sender getInstance(){
+			return instance;
+		}
+		
+		public void sendMessage(Object obj){
+			channel.writeAndFlush(obj);
+		}
+	}
 }

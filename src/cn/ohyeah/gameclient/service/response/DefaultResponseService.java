@@ -3,12 +3,11 @@ package cn.ohyeah.gameclient.service.response;
 import io.netty.buffer.ByteBuf;
 import cn.ohyeah.gameclient.global.Constant;
 import cn.ohyeah.gameclient.global.HeadWrapper;
-import cn.ohyeah.gameclient.global.IResponse;
 import cn.ohyeah.gameclient.global.ProcessFrame;
 
-public class DefaultResponseService{
+public class DefaultResponseService implements IResponseService{
 	
-	private IResponse response;
+	private IResponseService response;
 	
 	public void process(ProcessFrame frame){
 		ByteBuf rsp = frame.getResponse();

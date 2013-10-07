@@ -1,11 +1,11 @@
 package cn.ohyeah.gameclient.message;
 
 /**
- * 服务器返回的信息
+ * 服务器返回的信息(客户端主动调用)
  * @author Administrator
  *
  */
-public class Message {
+public class ResultInfo {
 	
 	/**
 	 * 返回码， 0请求成功，负值为请求错误

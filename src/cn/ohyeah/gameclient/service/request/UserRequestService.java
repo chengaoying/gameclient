@@ -5,9 +5,8 @@ import io.netty.buffer.Unpooled;
 import cn.ohyeah.gameclient.bootstrap.GameClient;
 import cn.ohyeah.gameclient.global.Constant;
 import cn.ohyeah.gameclient.global.HeadWrapper;
-import cn.ohyeah.gameclient.message.Message;
-import cn.ohyeah.gameclient.message.Sender;
-import cn.ohyeah.gameclient.model.UserInfo;
+import cn.ohyeah.gameclient.message.ResultInfo;
+import cn.ohyeah.gameclient.model.User;
 
 public class UserRequestService extends AbstractRequestService{
 	
@@ -16,7 +15,7 @@ public class UserRequestService extends AbstractRequestService{
 	 * @param user
 	 * @return
 	 */
-	public boolean user_register(UserInfo user){
+	public boolean user_register(User user){
 		/**
 		 * 向服务器发送请求
 		 */
@@ -29,7 +28,7 @@ public class UserRequestService extends AbstractRequestService{
 		/**
 		 * 接受服务器响应
 		 */
-		Message msg = response();
+		ResultInfo msg = response();
 		
 		return msg.getCode() == 0;
 	}
@@ -39,14 +38,14 @@ public class UserRequestService extends AbstractRequestService{
 	 * @param user
 	 * @return
 	 */
-	public Message user_login(UserInfo user){
+	public ResultInfo user_login(User user){
 		HeadWrapper head = createHead(Constant.PROTOCOL_TAG_USER_SERV,Constant.USER_SERV_LOGIN);
 		ByteBuf buf = Unpooled.buffer(256);
 		buf.writeInt(head.getHead());   
 		user.write(buf);
 		request(buf);
 		
-		Message msg = response();
+		ResultInfo msg = response();
 		return msg;
 	}
 	
@@ -55,7 +54,7 @@ public class UserRequestService extends AbstractRequestService{
 	 */
 	public void user_logout(){
 		try {
-			Sender.getInstance().getChannel().closeFuture().sync();
+			GameClient.channel.closeFuture().sync();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
