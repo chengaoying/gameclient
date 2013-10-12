@@ -2,20 +2,30 @@ package cn.ohyeah.gameclient.model;
 
 public class Prize {
 
-	private int prizeId;
+	private int prizeid;
+	
+	private int productid;
 	
 	private String name;
 	
 	private int price;
 	
 	private String imagePath;
-
-	public int getPrizeId() {
-		return prizeId;
+	
+	public int getProductid() {
+		return productid;
 	}
 
-	public void setPrizeId(int prizeId) {
-		this.prizeId = prizeId;
+	public void setProductid(int productid) {
+		this.productid = productid;
+	}
+
+	public void setPrizeid(int prizeid) {
+		this.prizeid = prizeid;
+	}
+
+	public int getPrizeid() {
+		return prizeid;
 	}
 
 	public String getName() {
