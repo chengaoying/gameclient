@@ -10,16 +10,23 @@ public class Constant {
 	/**
 	 * 协议标志
 	 */
-	public static final byte PROTOCOL_TAG_SYS_SERV = 0; 		/* 系统服务协议 */
-	public static final byte PROTOCOL_TAG_USER_SERV = 1; 		/* 用户服务协议 */
+	public static final byte PROTOCOL_TAG_SYS_SERV = 0; 					/* 系统服务协议 */
+	public static final byte PROTOCOL_TAG_USER_SERV = 1; 				/* 用户服务协议 */
+	public static final short PROTOCOL_TAG_PRIZE_SERV = 2; 				/* 奖品服务协议 */
 	
 	/**
 	 * 协议命令
 	 */
-	public static final byte  SYS_SERV_BREAK_HREAT = 1;			/*心跳命令*/
+	public static final byte  SYS_SERV_BREAK_HREAT = 1;					/*心跳命令*/
 	
-	public static final byte  USER_SERV_REGISTER = 11;			/*用户注册*/
-	public static final byte  USER_SERV_LOGIN = 12;				/*用户注册*/
+	public static final byte  USER_SERV_REGISTER = 11;					/*用户注册*/
+	public static final byte  USER_SERV_LOGIN = 12;						/*用户登入*/
+	
+	public static final short PRIZE_SERV_LOAD_INFO = 21; 				/* 获取奖品信息*/
+	
+	public static final short TYPE_NOTICE = 0;
+	public static final short TYPE_RESULTMSG = 1;
+	public static final short TYPE_PRIZEMSG = 2;
 	
 	/**
 	 * 协议名列表
@@ -27,7 +34,7 @@ public class Constant {
 	 *
 	 */
 	private static enum protocolTags {
-		System, User
+		System, User, Prize
 	};
 	
 	public static String getProtocolName(int tag){

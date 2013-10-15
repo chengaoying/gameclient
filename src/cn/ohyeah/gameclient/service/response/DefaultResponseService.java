@@ -22,6 +22,10 @@ public class DefaultResponseService implements IResponseService{
 			response = new UserResponseService();
 			response.process(frame);
 			break;
+		case Constant.PROTOCOL_TAG_PRIZE_SERV:
+			response = new PrizeResponseService();
+			response.process(frame);
+			break;
 		default:
 			break;
 		}

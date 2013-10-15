@@ -5,9 +5,14 @@ import io.netty.buffer.Unpooled;
 import cn.ohyeah.gameclient.bootstrap.GameClient;
 import cn.ohyeah.gameclient.global.Constant;
 import cn.ohyeah.gameclient.global.HeadWrapper;
-import cn.ohyeah.gameclient.message.ResultInfo;
+import cn.ohyeah.gameclient.message.ResultMsg;
 import cn.ohyeah.gameclient.model.User;
 
+/**
+ * 用户(游戏玩家)服务类
+ * @author Administrator
+ *
+ */
 public class UserRequestService extends AbstractRequestService{
 	
 	/**
@@ -28,7 +33,7 @@ public class UserRequestService extends AbstractRequestService{
 		/**
 		 * 接受服务器响应
 		 */
-		ResultInfo msg = response();
+		ResultMsg msg = response();
 		
 		return msg.getCode() == 0;
 	}
@@ -38,14 +43,14 @@ public class UserRequestService extends AbstractRequestService{
 	 * @param user
 	 * @return
 	 */
-	public ResultInfo user_login(User user){
+	public ResultMsg user_login(User user){
 		HeadWrapper head = createHead(Constant.PROTOCOL_TAG_USER_SERV,Constant.USER_SERV_LOGIN);
 		ByteBuf buf = Unpooled.buffer(256);
 		buf.writeInt(head.getHead());   
 		user.write(buf);
 		request(buf);
 		
-		ResultInfo msg = response();
+		ResultMsg msg = response();
 		return msg;
 	}
 	

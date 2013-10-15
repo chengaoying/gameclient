@@ -4,8 +4,10 @@ import io.netty.buffer.ByteBuf;
 import cn.ohyeah.gameclient.bootstrap.GameClient;
 import cn.ohyeah.gameclient.global.Constant;
 import cn.ohyeah.gameclient.global.HeadWrapper;
-import cn.ohyeah.gameclient.message.ResultInfo;
+import cn.ohyeah.gameclient.message.PrizeMsg;
+import cn.ohyeah.gameclient.message.ResultMsg;
 import cn.ohyeah.gameclient.message.MessageQueue;
+import cn.ohyeah.gameclient.model.Prize;
 
 public abstract class AbstractRequestService {
 
@@ -27,9 +29,9 @@ public abstract class AbstractRequestService {
 	 * 响应服务器请求
 	 * @return
 	 */
-	protected ResultInfo response(){
+	protected ResultMsg response(){
 		boolean hasMessage = false;
-		ResultInfo msg = null;
+		ResultMsg msg = null;
 		while(!hasMessage){
 			if(MessageQueue.hasMessage()){
 				hasMessage = true;
@@ -37,6 +39,29 @@ public abstract class AbstractRequestService {
 				System.out.println("code="+msg.getCode());
 				System.out.println("message="+msg.getMessage());
 				System.out.println("data="+msg.getData());
+			}
+			System.out.println();
+		}
+		return msg;
+	}
+	
+	/**
+	 * 响应服务器请求
+	 * @return
+	 */
+	protected PrizeMsg response2(){
+		boolean hasMessage = false;
+		PrizeMsg msg = null;
+		while(!hasMessage){
+			if(MessageQueue.hasPrizeMsg()){
+				hasMessage = true;
+				msg = MessageQueue.PrizeMsgQueue.poll();
+				System.out.println("code="+msg.getCode());
+				System.out.println("message="+msg.getMessage());
+				for(int i=0;i<msg.getPrizes().size();i++){
+					Prize prize = msg.getPrizes().get(i);
+					System.out.println("prize==>"+prize.getPicName());
+				}
 			}
 			System.out.println();
 		}

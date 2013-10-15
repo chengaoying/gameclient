@@ -5,7 +5,7 @@ package cn.ohyeah.gameclient.message;
  * @author Administrator
  *
  */
-public class ResultInfo {
+public class ResultMsg {
 	
 	/**
 	 * 返回码， 0请求成功，负值为请求错误

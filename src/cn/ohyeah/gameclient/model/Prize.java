@@ -1,31 +1,37 @@
 package cn.ohyeah.gameclient.model;
 
+import io.netty.buffer.ByteBuf;
+
 public class Prize {
 
 	private int prizeid;
 	
-	private int productid;
-	
 	private String name;
+	
+	private int productid;
 	
 	private int price;
 	
-	private String imagePath;
+	private int activityid;
 	
-	public int getProductid() {
-		return productid;
+	private String picName;
+	
+	private ByteBuf bytes;
+
+	public String getPicName() {
+		return picName;
 	}
 
-	public void setProductid(int productid) {
-		this.productid = productid;
-	}
-
-	public void setPrizeid(int prizeid) {
-		this.prizeid = prizeid;
+	public void setPicName(String picName) {
+		this.picName = picName;
 	}
 
 	public int getPrizeid() {
 		return prizeid;
+	}
+
+	public void setPrizeid(int prizeid) {
+		this.prizeid = prizeid;
 	}
 
 	public String getName() {
@@ -36,6 +42,14 @@ public class Prize {
 		this.name = name;
 	}
 
+	public int getProductid() {
+		return productid;
+	}
+
+	public void setProductid(int productid) {
+		this.productid = productid;
+	}
+
 	public int getPrice() {
 		return price;
 	}
@@ -44,13 +58,20 @@ public class Prize {
 		this.price = price;
 	}
 
-	public String getImagePath() {
-		return imagePath;
+	public int getActivityid() {
+		return activityid;
 	}
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setActivityid(int activityid) {
+		this.activityid = activityid;
 	}
-	
+
+	public ByteBuf getBytes() {
+		return bytes;
+	}
+
+	public void setBytes(ByteBuf bytes) {
+		this.bytes = bytes;
+	}
 	
 }

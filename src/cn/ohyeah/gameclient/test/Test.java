@@ -1,8 +1,10 @@
 package cn.ohyeah.gameclient.test;
 
 import cn.ohyeah.gameclient.bootstrap.GameClient;
-import cn.ohyeah.gameclient.message.ResultInfo;
+import cn.ohyeah.gameclient.message.PrizeMsg;
+import cn.ohyeah.gameclient.message.ResultMsg;
 import cn.ohyeah.gameclient.model.User;
+import cn.ohyeah.gameclient.service.request.PrizeRequestService;
 import cn.ohyeah.gameclient.service.request.UserRequestService;
 
 public class Test {
@@ -13,6 +15,7 @@ public class Test {
 		int port = 8090;
 		GameClient.init(host, port);
 
+		PrizeRequestService ps = new PrizeRequestService();
 		UserRequestService us = new UserRequestService();
 		User user = new User();
 		user.setName("jackey-3d33d");
@@ -24,14 +27,20 @@ public class Test {
 
 		/* 
 		 * 1、用户注册，返回boolean值，true为注册成功，false为注册失败
-		 * boolean b = us.user_register(user);
 		 */
+		/*boolean b = us.user_register(user);
+		System.out.println(b);*/
 		
 		/*
 		 * 2、用户登入，返回ResultInfo对象
 		 */
-		ResultInfo msg = us.user_login(user);
-		System.out.println("msg.code=="+msg.getCode());
+		/*ResultInfo msg = us.user_login(user);
+		System.out.println("msg.code=="+msg.getCode());*/
 		
+		/*
+		 * 3、加载奖品信息
+		 */
+		PrizeMsg info = ps.loadPrizes(1);
+		System.out.println("info==>"+info);
 	}
 }

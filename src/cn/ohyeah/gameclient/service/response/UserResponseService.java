@@ -4,7 +4,7 @@ import io.netty.buffer.ByteBuf;
 import cn.ohyeah.gameclient.global.Constant;
 import cn.ohyeah.gameclient.global.HeadWrapper;
 import cn.ohyeah.gameclient.global.ProcessFrame;
-import cn.ohyeah.gameclient.message.ResultInfo;
+import cn.ohyeah.gameclient.message.ResultMsg;
 import cn.ohyeah.gameclient.message.MessageQueue;
 import cn.ohyeah.gameclient.util.BytesUtil;
 
@@ -30,7 +30,7 @@ public class UserResponseService implements IResponseService {
 		int code = rsp.readInt();
 		String message = BytesUtil.readString(rsp);
 		String data = BytesUtil.readString(rsp);
-		ResultInfo msg = new ResultInfo();
+		ResultMsg msg = new ResultMsg();
 		msg.setCode(code);
 		msg.setMessage(message);
 		msg.setData(data);
@@ -42,7 +42,7 @@ public class UserResponseService implements IResponseService {
 		int code = rsp.readInt();
 		String message = BytesUtil.readString(rsp);
 		String data = BytesUtil.readString(rsp);
-		ResultInfo msg = new ResultInfo();
+		ResultMsg msg = new ResultMsg();
 		msg.setCode(code);
 		msg.setMessage(message);
 		msg.setData(data);
