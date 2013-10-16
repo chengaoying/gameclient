@@ -1,5 +1,8 @@
 package cn.ohyeah.gameclient.service.response;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.netty.buffer.ByteBuf;
 import cn.ohyeah.gameclient.global.Constant;
 import cn.ohyeah.gameclient.global.HeadWrapper;
@@ -25,12 +28,14 @@ public class PrizeResponseService implements IResponseService{
 
 	private void loadPrizes(ProcessFrame frame) {
 		ByteBuf rsp = frame.getResponse();
+		System.out.println("client byteBuf.size==>"+rsp.capacity());
 		int code = rsp.readInt();
 		String message = BytesUtil.readString(rsp);
 		PrizeMsg msg = new PrizeMsg();
 		msg.setCode(code);
 		msg.setMessage(message);
 		int nodesize = rsp.readInt();
+		List<Prize> list = new ArrayList<Prize>();
 		for(int i=0;i<nodesize;i++){
 			Prize prize = new Prize();
 			prize.setActivityid(Integer.parseInt(BytesUtil.readString(rsp)));
@@ -38,8 +43,14 @@ public class PrizeResponseService implements IResponseService{
 			prize.setProductid(Integer.parseInt(BytesUtil.readString(rsp)));
 			prize.setName(BytesUtil.readString(rsp));
 			prize.setPicName(BytesUtil.readString(rsp));
-			prize.setBytes(rsp.readBytes(rsp));
+			byte[] bytes = new byte[rsp.readableBytes()];
+			while(rsp.readBoolean()){
+				bytes[rsp.readerIndex()] = rsp.readByte();
+			}
+			prize.setBytes(bytes);
+			list.add(prize);
 		}
+		msg.setPrizes(list);
 		MessageQueue.PrizeMsgQueue.add(msg);
 	}
 

@@ -1,7 +1,5 @@
 package cn.ohyeah.gameclient.model;
 
-import io.netty.buffer.ByteBuf;
-
 public class Prize {
 
 	private int prizeid;
@@ -16,7 +14,7 @@ public class Prize {
 	
 	private String picName;
 	
-	private ByteBuf bytes;
+	private byte[] bytes;
 
 	public String getPicName() {
 		return picName;
@@ -66,11 +64,11 @@ public class Prize {
 		this.activityid = activityid;
 	}
 
-	public ByteBuf getBytes() {
+	public byte[] getBytes() {
 		return bytes;
 	}
 
-	public void setBytes(ByteBuf bytes) {
+	public void setBytes(byte[] bytes) {
 		this.bytes = bytes;
 	}
 	

@@ -61,9 +61,10 @@ public abstract class AbstractRequestService {
 				for(int i=0;i<msg.getPrizes().size();i++){
 					Prize prize = msg.getPrizes().get(i);
 					System.out.println("prize==>"+prize.getPicName());
+					System.out.println("prize==>"+prize.getBytes().length);
 				}
 			}
-			System.out.println();
+			//System.out.println();
 		}
 		return msg;
 	}
