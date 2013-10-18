@@ -1,10 +1,8 @@
 package cn.ohyeah.gameclient.test;
 
 import cn.ohyeah.gameclient.bootstrap.GameClient;
-import cn.ohyeah.gameclient.message.PrizeMsg;
 import cn.ohyeah.gameclient.message.ResultMsg;
 import cn.ohyeah.gameclient.model.User;
-import cn.ohyeah.gameclient.service.request.PrizeRequestService;
 import cn.ohyeah.gameclient.service.request.UserRequestService;
 
 public class Test {
@@ -15,7 +13,7 @@ public class Test {
 		int port = 8090;
 		GameClient.init(host, port);
 
-		PrizeRequestService ps = new PrizeRequestService();
+		//PrizeRequestService ps = new PrizeRequestService();
 		UserRequestService us = new UserRequestService();
 		User user = new User();
 		user.setName("jackey-3d33d");
