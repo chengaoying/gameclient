@@ -34,13 +34,12 @@ public class Test {
 		/*
 		 * 2、用户登入，返回ResultInfo对象
 		 */
-		/*ResultInfo msg = us.user_login(user);
-		System.out.println("msg.code=="+msg.getCode());*/
+		ResultMsg msg = us.user_login(user);
+		System.out.println("msg.code=="+msg.getCode());
 		
 		/*
 		 * 3、加载奖品信息
 		 */
-		PrizeMsg info = ps.loadPrizes(1);
-		System.out.println("info==>"+info);
+		//PrizeMsg info = ps.loadPrizes(1);
 	}
 }

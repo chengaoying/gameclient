@@ -40,7 +40,6 @@ public abstract class AbstractRequestService {
 				System.out.println("message="+msg.getMessage());
 				System.out.println("data="+msg.getData());
 			}
-			System.out.println();
 		}
 		return msg;
 	}
@@ -61,10 +60,8 @@ public abstract class AbstractRequestService {
 				for(int i=0;i<msg.getPrizes().size();i++){
 					Prize prize = msg.getPrizes().get(i);
 					System.out.println("prize==>"+prize.getPicName());
-					System.out.println("prize==>"+prize.getBytes().length);
 				}
 			}
-			//System.out.println();
 		}
 		return msg;
 	}

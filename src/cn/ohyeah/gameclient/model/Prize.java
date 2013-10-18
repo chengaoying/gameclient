@@ -14,7 +14,7 @@ public class Prize {
 	
 	private String picName;
 	
-	private byte[] bytes;
+	//private byte[] bytes;
 
 	public String getPicName() {
 		return picName;
@@ -64,12 +64,12 @@ public class Prize {
 		this.activityid = activityid;
 	}
 
-	public byte[] getBytes() {
+	/*public byte[] getBytes() {
 		return bytes;
 	}
 
 	public void setBytes(byte[] bytes) {
 		this.bytes = bytes;
-	}
+	}*/
 	
 }

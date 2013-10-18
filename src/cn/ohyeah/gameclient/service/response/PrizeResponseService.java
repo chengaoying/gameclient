@@ -28,28 +28,30 @@ public class PrizeResponseService implements IResponseService{
 
 	private void loadPrizes(ProcessFrame frame) {
 		ByteBuf rsp = frame.getResponse();
-		System.out.println("client byteBuf.size==>"+rsp.capacity());
 		int code = rsp.readInt();
 		String message = BytesUtil.readString(rsp);
 		PrizeMsg msg = new PrizeMsg();
 		msg.setCode(code);
 		msg.setMessage(message);
-		int nodesize = rsp.readInt();
 		List<Prize> list = new ArrayList<Prize>();
-		for(int i=0;i<nodesize;i++){
-			Prize prize = new Prize();
-			prize.setActivityid(Integer.parseInt(BytesUtil.readString(rsp)));
-			prize.setPrice(Integer.parseInt(BytesUtil.readString(rsp)));
-			prize.setProductid(Integer.parseInt(BytesUtil.readString(rsp)));
-			prize.setName(BytesUtil.readString(rsp));
-			prize.setPicName(BytesUtil.readString(rsp));
-			byte[] bytes = new byte[rsp.readableBytes()];
-			while(rsp.readBoolean()){
-				bytes[rsp.readerIndex()] = rsp.readByte();
+		int nodesize = rsp.readInt();
+		if(nodesize > 0){
+			for(int i=0;i<nodesize;i++){
+				Prize prize = new Prize();
+				prize.setActivityid(Integer.parseInt(BytesUtil.readString(rsp)));
+				prize.setPrice(Integer.parseInt(BytesUtil.readString(rsp)));
+				prize.setProductid(Integer.parseInt(BytesUtil.readString(rsp)));
+				prize.setName(BytesUtil.readString(rsp));
+				prize.setPicName(BytesUtil.readString(rsp));
+				/*byte[] bytes = new byte[rsp.readableBytes()];
+				while(rsp.readBoolean()){
+					bytes[rsp.readerIndex()] = rsp.readByte();
+				}
+				prize.setBytes(bytes);*/
+				list.add(prize);
 			}
-			prize.setBytes(bytes);
-			list.add(prize);
 		}
+		
 		msg.setPrizes(list);
 		MessageQueue.PrizeMsgQueue.add(msg);
 	}
