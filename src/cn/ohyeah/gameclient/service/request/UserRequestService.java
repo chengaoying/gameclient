@@ -20,7 +20,7 @@ public class UserRequestService extends AbstractRequestService{
 	 * @param user
 	 * @return
 	 */
-	public boolean user_register(User user){
+	public ResultMsg user_register(User user){
 		/**
 		 * 向服务器发送请求
 		 */
@@ -35,7 +35,7 @@ public class UserRequestService extends AbstractRequestService{
 		 */
 		ResultMsg msg = response();
 		
-		return msg.getCode() == 0;
+		return msg;
 	}
 
 	/**

@@ -5,24 +5,28 @@ public class Constant {
 	/**
 	 * 协议版本
 	 */
-	public static final byte PROTOCOL_VERSION = 1;
+	public static final short PROTOCOL_VERSION = 1;
 	
 	/**
 	 * 协议标志
 	 */
-	public static final byte PROTOCOL_TAG_SYS_SERV = 0; 					/* 系统服务协议 */
-	public static final byte PROTOCOL_TAG_USER_SERV = 1; 				/* 用户服务协议 */
-	public static final short PROTOCOL_TAG_PRIZE_SERV = 2; 				/* 奖品服务协议 */
+	public static final short PROTOCOL_TAG_SYS_SERV = 0; 					/* 系统服务协议 */
+	public static final short PROTOCOL_TAG_USER_SERV = 1; 					/* 用户服务协议 */
+	public static final short PROTOCOL_TAG_PRIZE_SERV = 2; 					/* 奖品服务协议 */
+	public static final short PROTOCOL_TAG_RECORD_SERV = 3;					/* 游戏记录服务 */
 	
 	/**
 	 * 协议命令
 	 */
-	public static final byte  SYS_SERV_BREAK_HREAT = 1;					/*心跳命令*/
+	public static final short SYS_SERV_BREAK_HREAT = 1;					/*心跳命令*/
 	
-	public static final byte  USER_SERV_REGISTER = 11;					/*用户注册*/
-	public static final byte  USER_SERV_LOGIN = 12;						/*用户登入*/
+	public static final short USER_SERV_REGISTER = 11;					/*用户注册*/
+	public static final short USER_SERV_LOGIN = 12;						/*用户登入*/
 	
 	public static final short PRIZE_SERV_LOAD_INFO = 21; 				/* 获取奖品信息*/
+	
+	public static final short RECORD_SERV_SAVE = 31;					/* 保存游戏 记录 */
+	public static final short RECORD_SERV_LOAD = 32;					/* 读取游戏记录 */
 	
 	public static final short TYPE_NOTICE = 0;
 	public static final short TYPE_RESULTMSG = 1;
