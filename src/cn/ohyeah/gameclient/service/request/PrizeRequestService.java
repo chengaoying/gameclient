@@ -14,7 +14,7 @@ import cn.ohyeah.gameclient.message.PrizeMsg;
 public class PrizeRequestService extends AbstractRequestService{
 
 	/**
-	 * 加载奖品资源
+	 * 加载奖品信息
 	 * @param activityid
 	 * @return
 	 */
@@ -31,5 +31,15 @@ public class PrizeRequestService extends AbstractRequestService{
 		PrizeMsg msg = response2();
 		
 		return msg;
+	}
+	
+	/**
+	 * 加载奖品资源
+	 */
+	public void loadPrizesRes(){
+		HeadWrapper head = createHead(Constant.PROTOCOL_TAG_PRIZE_SERV,Constant.PRIZE_SERV_LOAD_RES);
+		ByteBuf buf = Unpooled.buffer(256);
+		buf.writeInt(head.getHead()); 
+		request(buf);
 	}
 }
