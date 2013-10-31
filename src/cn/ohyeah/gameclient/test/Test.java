@@ -12,8 +12,8 @@ public class Test {
 	
 	public static void main(String args[]) {
 		
-		//String host = "101.66.253.154";
-		String host = "localhost";
+		String host = "101.66.253.154";
+		//String host = "localhost";
 		int port = 8090;
 		GameClient.init(host, port);
 
@@ -53,6 +53,12 @@ public class Test {
 		/*
 		 *  5、读取游戏记录
 		 */
-		//ResultMsg msg = rs.load(2);
+		//ResultMsg msg = rs.load(3);
+		
+		/*
+		 * 6、加载图片资源
+		 */
+		//ps.loadPrizesRes();
+		
 	}
 }

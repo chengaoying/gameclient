@@ -1,6 +1,7 @@
 package cn.ohyeah.gameclient.bootstrap;
 
 import cn.ohyeah.gameclient.handler.GameClientHandler;
+import cn.ohyeah.gameclient.handler.LoadResourcesHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -9,6 +10,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.stream.ChunkedWriteHandler;
 
 /**
  * 客户端通讯层启动类
@@ -47,6 +49,8 @@ public class GameClient {
 						ch.pipeline().addLast(
 								//new StringEncoder(),
 								//new StringDecoder(), 
+								new ChunkedWriteHandler(),
+								new LoadResourcesHandler(),
 								new GameClientHandler()
 								);
 					}
