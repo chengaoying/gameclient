@@ -14,6 +14,7 @@ public class Constant {
 	public static final short PROTOCOL_TAG_USER_SERV = 1; 					/* 用户服务协议 */
 	public static final short PROTOCOL_TAG_PRIZE_SERV = 2; 					/* 奖品服务协议 */
 	public static final short PROTOCOL_TAG_RECORD_SERV = 3;					/* 游戏记录服务 */
+	public static final short PROTOCOL_TAG_USER_PRIZE_RECORD = 4;			/* 用户中奖记录 */
 	
 	/**
 	 * 协议命令
@@ -28,6 +29,9 @@ public class Constant {
 	
 	public static final short RECORD_SERV_SAVE = 31;					/* 保存游戏 记录 */
 	public static final short RECORD_SERV_LOAD = 32;					/* 读取游戏记录 */
+	
+	public static final short USER_PRIZE_RECORD_SAVE = 41;				/* 保存用户中奖记录 */
+	public static final short USER_PRIZE_RECORD_LOAD = 42;				/* 读取用户中奖记录 */
 	
 	public static final short TYPE_NOTICE = 0;
 	public static final short TYPE_RESULTMSG = 1;
