@@ -6,20 +6,22 @@ import cn.ohyeah.gameclient.message.ResultMsg;
 import cn.ohyeah.gameclient.model.User;
 import cn.ohyeah.gameclient.service.request.PrizeRequestService;
 import cn.ohyeah.gameclient.service.request.RecordRequestService;
+import cn.ohyeah.gameclient.service.request.UserPrizeRequestService;
 import cn.ohyeah.gameclient.service.request.UserRequestService;
 
 public class Test {
 	
 	public static void main(String args[]) {
 		
-		String host = "101.66.253.154";
-		//String host = "localhost";
+		//String host = "101.66.253.154";
+		String host = "localhost";
 		int port = 8090;
 		GameClient.init(host, port);
 
 		PrizeRequestService ps = new PrizeRequestService();
 		UserRequestService us = new UserRequestService();
 		RecordRequestService rs = new RecordRequestService();
+		UserPrizeRequestService ups = new UserPrizeRequestService();
 		User user = new User();
 		user.setName("jackey-3d33d");
 		user.setPassword("123321");
@@ -60,5 +62,14 @@ public class Test {
 		 */
 		//ps.loadPrizesRes();
 		
+		/*
+		 * 7、保存用户中奖记录
+		 */
+		ups.save(1, 1);
+		
+		/*
+		 * 8、读取用户中奖记录
+		 */
+		//ups.load(1);
 	}
 }

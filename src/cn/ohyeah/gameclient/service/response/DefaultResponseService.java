@@ -30,6 +30,10 @@ public class DefaultResponseService implements IResponseService{
 			response = new GameRecordResponseService();
 			response.process(frame);
 			break;
+		case Constant.PROTOCOL_TAG_USER_PRIZE_RECORD:
+			response = new UserPrizeResponseService();
+			response.process(frame);
+			break;
 		default:
 			break;
 		}
