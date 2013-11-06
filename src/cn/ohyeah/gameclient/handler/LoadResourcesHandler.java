@@ -1,7 +1,5 @@
 package cn.ohyeah.gameclient.handler;
 
-import java.io.File;
-
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 

@@ -1,7 +1,6 @@
 package cn.ohyeah.gameclient.bootstrap;
 
 import cn.ohyeah.gameclient.handler.GameClientHandler;
-import cn.ohyeah.gameclient.handler.LoadResourcesHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
