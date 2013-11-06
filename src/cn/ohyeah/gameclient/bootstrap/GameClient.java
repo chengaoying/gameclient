@@ -50,7 +50,7 @@ public class GameClient {
 								//new StringEncoder(),
 								//new StringDecoder(), 
 								new ChunkedWriteHandler(),
-								new LoadResourcesHandler(),
+								//new LoadResourcesHandler(),
 								new GameClientHandler()
 								);
 					}
