@@ -13,8 +13,8 @@ public class Test {
 	
 	public static void main(String args[]) {
 		
-		//String host = "101.66.253.154";
-		String host = "localhost";
+		String host = "101.66.253.154";
+		//String host = "localhost";
 		int port = 8090;
 		GameClient.init(host, port);
 
@@ -58,18 +58,28 @@ public class Test {
 		//ResultMsg msg = rs.load(3);
 		
 		/*
-		 * 6、加载图片资源
+		 * 6、加载图片资源（功能还没有完成）
 		 */
-		//ps.loadPrizesRes();
+		//ps.loadPrizesRes();	
 		
 		/*
 		 * 7、保存用户中奖记录
 		 */
-		ups.save(1, 1);
+		ups.save(1, 2);  //保存用户记录之后系统会发通知给所有客户端，通知信息在客户端MessageQueue.noticeQueue队列中。
 		
 		/*
 		 * 8、读取用户中奖记录
 		 */
 		//ups.load(1);
+		/*long t1 = System.currentTimeMillis();
+		long t2 = System.currentTimeMillis();
+		while(true){
+			if(t2 - t1 > 3000){
+				ups.save(1, 2);
+				t1 = System.currentTimeMillis();
+			}
+			t2 = System.currentTimeMillis();
+		}*/
+		
 	}
 }
