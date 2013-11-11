@@ -65,12 +65,12 @@ public class Test {
 		/*
 		 * 7、保存用户中奖记录
 		 */
-		ups.save(1, 2);  //保存用户记录之后系统会发通知给所有客户端，通知信息在客户端MessageQueue.noticeQueue队列中。
+		//ups.save(1, 1);  //保存用户记录之后系统会发通知给所有客户端，通知信息在客户端MessageQueue.noticeQueue队列中。
 		
 		/*
 		 * 8、读取用户中奖记录
 		 */
-		//ups.load(1);
+		ups.load(1);
 		/*long t1 = System.currentTimeMillis();
 		long t2 = System.currentTimeMillis();
 		while(true){
